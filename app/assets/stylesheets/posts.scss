@@ -1,0 +1,43 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.bg-my {
+    background: var(--primaryColor) !important;
+}
+
+.nav-link {
+    color: #fff !important;
+    font-weight: bold;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+}
+
+.navbar-nav {
+    width: 100%;
+    justify-content: flex-end;
+}
+
+.card-header-my {
+    font-size: 0.8rem;
+    font-weight: bold;
+    background-color: rgba(0,0,0,.015);
+    color: #4a4a4a;
+    padding: 0.4rem 1rem;
+    text-align: left;
+}
+
+.badge {
+    left: 0;
+}
+
+.btn-my {
+    background-color: var(--primaryColor);
+    color: #fff;
+    padding: .2rem;
+    border-radius: 2px;
+}
+
+textarea {
+    width: 100%;
+    resize: none;
+}

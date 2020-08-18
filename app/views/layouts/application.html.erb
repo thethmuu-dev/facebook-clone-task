@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>FacebookClone</title>
+    <title>Facebook</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <link rel="icon" href="assets/favicon.ico" sizes="16x16" type="image/png"> 
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <% flash.each do |key, value| %>
+      <%= content_tag(:div, value, class: "#{key}") %>
+    <% end %>
+    <%= render 'layouts/navbar' %>
     <%= yield %>
   </body>
 </html>
