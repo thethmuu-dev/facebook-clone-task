@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
     before_action :set_post, only: [:show, :destroy, :edit, :update]
+    before_action :require_user, except: [:show, :index]
+    before_action :owner_check, only: [:edit, :update, :destroy]
     def index
         @posts = Post.order('created_at DESC')
     end
@@ -44,5 +46,12 @@ class PostsController < ApplicationController
 
     def set_post
         @post = Post.find(params[:id])
+    end
+
+    def owner_check
+        if current_user != @post.user
+          flash[:alert] = "You can only edit or delete your own posts"
+          redirect_to @post
+        end
     end
 end
