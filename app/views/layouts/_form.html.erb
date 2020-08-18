@@ -1,0 +1,17 @@
+<div class="card text-center rounded-lg mb-3">
+    <div class="card-header card-header-my">
+    Create Post
+    </div>
+    <%= form_with(model: @post, local: true) do |f| %> 
+    <%= f.text_area :content, placeholder: "What's on your mind, #{current_user.name}?", row: "15", class: "px-3 py-2 border-0" %>
+    <hr class="mb-0">
+    <div class="d-flex px-3 flex-start">
+        <label class="badge badge-pill badge-light shadow-sm p-2 my-2" for="upload-photo">&#127748; Add Photo</label>
+        <input type="file" name="image" id="upload-photo" />
+    </div>
+    <hr class="my-0">
+    <div class="p-2">
+        <button type="submit" class="btn btn-block btn-my">Post</button>
+    </div>
+    <% end %>
+</div>
