@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  resources :image_posts
-  resources :sessions, only: [:new, :create, :destroy]
-  resources :users
   root 'sessions#new'
+  get 'signup', to: 'users#new'
+  resources :users, except: [:new]
+  resources :sessions, only: [:create, :destroy]
+  resources :image_posts
 end
