@@ -11,6 +11,7 @@
     </div>
     <% if current_user.id == post.user.id %>
     <div class="card-footer my-footer bg-white">
+    <%= link_to "View", image_post_path(post), class: "px-5 py-1" %>
     <%= link_to "Edit", edit_image_post_path(post), class: "px-5 py-1" %>
     <%= link_to "Delete", image_post_path(post), method: :delete, class: "px-5 py-1", data: { confirm: 'Are you sure?' } %>
     </div>
