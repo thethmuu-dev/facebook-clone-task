@@ -8,7 +8,7 @@
         <div class="col-8 mt-3 mx-auto">
             <div class="card text-center">
             <div class="card-header bg-white text-center font-weight-bold my-font-size">
-                <p>Post with the following contents</p>
+                Post with the following contents
             </div>
             <div class="card-body">
                 <%= f.hidden_field :content %>
@@ -16,11 +16,9 @@
                 <%= f.hidden_field :picture_cache %>
                 <p class="card-text"><%= image_tag(@image_post.picture.url, class: "post-img") if @image_post.picture? %></p>
             </div>
-            <div class="card-footer">
-                <p>
+            <div class="card-footer bg-white">
                 <%= f.submit "Post", class: "btn btn-my px-4" %>
-                <%= f.submit "Back", name:'back', class: "btn btn-sm btn-outline-primary px-4" %>
-                </p>
+                <%= f.submit "Back", name:'back', class: "btn btn-my btn-outline-my px-4", id: "btn-outline" %>
             </div>
             </div>
         </div>
