@@ -1,4 +1,4 @@
-<% @posts.each do |post| %>
+<% @image_posts.each do |post| %>
 <div class="card rounded-sm mb-3">
     <div class="card-header post-header bg-white flex pt-2">
     <%= image_tag("https://i.pravatar.cc/300?u=#{post.user.email}", :size => "35x35", :class => "rounded-circle mr-1") %>
@@ -11,8 +11,8 @@
     </div>
     <% if current_user.id == post.user.id %>
     <div class="card-footer my-footer bg-white">
-    <%= link_to "Edit", edit_post_path(post), class: "px-5 py-1" %>
-    <%= link_to "Delete", post_path(post), method: :delete, class: "px-5 py-1", data: { confirm: 'Are you sure?' } %>
+    <%= link_to "Edit", edit_image_post_path(post), class: "px-5 py-1" %>
+    <%= link_to "Delete", image_post_path(post), method: :delete, class: "px-5 py-1", data: { confirm: 'Are you sure?' } %>
     </div>
     <% end %>
 </div>

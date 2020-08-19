@@ -1,19 +1,32 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+ <div class="row mt-3">
+  <div class="col-md-3 border">
+    col-md-3
+  </div>
+  <div class="col-md-6">
+    <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Content:</strong>
-  <%= @image_post.content %>
-</p>
-
-<p>
-  <strong>Picture:</strong>
-  <%= @image_post.picture %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @image_post.user %>
-</p>
-
-<%= link_to 'Edit', edit_image_post_path(@image_post) %> |
-<%= link_to 'Back', image_posts_path %>
+    <div class="card rounded-sm mb-3">
+      <div class="card-header post-header bg-white flex pt-2">
+      <%= image_tag("https://i.pravatar.cc/300?u=#{@image_post.user.email}", :size => "35x35", :class => "rounded-circle mr-1") %>
+      <%= @image_post.user.name %>
+      </div>
+      <div class="card-body pt-0">
+        <p class="card-text">
+            <%= @image_post.content %>
+        </p>
+      </div>
+      <% if current_user.id == @image_post.user.id %>
+      <div class="card-footer my-footer bg-white">
+      <%= link_to "Edit", edit_image_post_path(@image_post), class: "px-5 py-1" %>
+      <%= link_to "Delete", image_post_path(@image_post), method: :delete, class: "px-5 py-1", data: { confirm: 'Are you sure?' } %>
+      </div>
+      <% end %>
+    </div>
+    <%= link_to 'Back', image_posts_path %>
+  </div>
+  <div class="col-md-3 border">
+    col-md-3
+  </div>
+ </div>
+</div>

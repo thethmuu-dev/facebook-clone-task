@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-    has_many :posts
     has_many :image_posts
     before_validation { email.downcase! }
     has_secure_password

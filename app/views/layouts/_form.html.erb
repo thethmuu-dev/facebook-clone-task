@@ -1,4 +1,13 @@
 <div class="card text-center rounded-lg mb-3">
+<% if @post.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+      <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
     <div class="card-header card-header-my">
     Create Post
     </div>

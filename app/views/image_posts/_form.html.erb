@@ -1,32 +1,26 @@
-<%= form_with(model: image_post, local: true) do |form| %>
-  <% if image_post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(image_post.errors.count, "error") %> prohibited this image_post from being saved:</h2>
-
-      <ul>
-      <% image_post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<div class="card text-center rounded-lg mb-3">
+    <% if @image_post.errors.any? %>
+      <div id="error_explanation">
+        <ul>
+        <% @image_post.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="card-header card-header-my">
+    Create Post
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content %>
-  </div>
-
-  <div class="field">
-    <%= form.label :picture %>
-    <%= form.text_field :picture %>
-  </div>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+    <%= form_with(model: @image_post, local: true) do |f| %> 
+    <%= f.text_area :content, placeholder: "What's on your mind, #{current_user.name}?", row: "15", class: "px-3 py-2 border-0" %>
+    <hr class="mb-0">
+    <div class="d-flex px-3 flex-start">
+        <label class="badge badge-pill badge-light shadow-sm p-2 my-2" for="upload-photo">&#127748; Add Photo</label>
+        <%= f.file_field :picture, id: "upload-photo" %>
+    </div>
+    <hr class="my-0">
+    <div class="p-2">
+        <button type="submit" class="btn btn-block btn-my">Post</button>
+    </div>
+    <% end %>
+</div>

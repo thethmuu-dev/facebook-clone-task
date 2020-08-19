@@ -11,21 +11,21 @@ class ImagePostsController < ApplicationController
   end
 
   def new
-    @post = ImagePost.new
+    @image_post = ImagePost.new
   end
 
   def edit
   end
 
   def create
-    @post = ImagePost.new(post_params)
-    @post.user = current_user
+    @image_post = ImagePost.new(post_params)
+    @image_post.user = current_user
     if params[:back]
       render :new
     else
-      if @post.save
+      if @image_post.save
         flash[:notice] = "Post Created"
-        redirect_to @post
+        redirect_to @image_post
       else
         render 'new'
       end
@@ -33,18 +33,18 @@ class ImagePostsController < ApplicationController
   end
 
   def update
-    if @post.update(post_params)
+    if @image_post.update(post_params)
       flash[:notice] = "Post Updated!"
-      redirect_to @post
+      redirect_to @image_post
     else
       render 'edit'
     end
   end
 
   def destroy
-    if @post.destroy
+    if @image_post.destroy
       flash[:notice] = "Post Deleted!"
-      redirect_to images_path
+      redirect_to image_posts_path
     end
   end
 
@@ -61,13 +61,13 @@ class ImagePostsController < ApplicationController
   end
 
   def post_params
-    params.require(:image).permit(:name, :picture, :picture_cache, :user_id)
+    params.require(:image_post).permit(:content, :picture, :picture_cache, :user_id)
   end
 
   def owner_check
-    if current_user != @image.user
+    if current_user != @image_post.user
       flash[:alert] = "You can only edit or delete your own posts"
-      redirect_to @image
+      redirect_to @image_post
     end
   end
 
