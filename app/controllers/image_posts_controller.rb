@@ -1,10 +1,10 @@
 class ImagePostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_action :require_user, except: [:show, :index]
+  before_action :require_user
   before_action :owner_check, only: [:edit, :update, :destroy]
 
   def index
-    @image_posts = ImagePost.all
+    @image_posts = ImagePost.order('created_at DESC')
   end
 
   def show

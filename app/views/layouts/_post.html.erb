@@ -8,6 +8,7 @@
     <p class="card-text">
         <%= post.content %>
     </p>
+    <%= image_tag(post.picture.url, class: "post-img") if post.picture? %>
     </div>
     <% if current_user.id == post.user.id %>
     <div class="card-footer my-footer bg-white">
