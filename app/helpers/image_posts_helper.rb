@@ -5,4 +5,12 @@ module ImagePostsHelper
           redirect_to new_session_path
         end
     end
+
+    def choose_new_or_edit_image
+      if action_name == 'new' || action_name == 'create'
+        confirm_image_posts_path
+      elsif action_name == 'edit'
+        image_post_path
+      end
+    end
 end

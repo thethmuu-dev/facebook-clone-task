@@ -1,17 +1,17 @@
-<div class="card text-center rounded-lg mb-3">
-    <% if @image_post.errors.any? %>
-      <div id="error_explanation">
-        <ul>
-        <% @image_post.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-        </ul>
-      </div>
+<% if @image_post.errors.any? %>
+  <div id="error_explanation">
+    <ul>
+    <% @image_post.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
     <% end %>
+    </ul>
+  </div>
+<% end %>
+<div class="card text-center rounded-lg mb-3">
     <div class="card-header card-header-my">
     Create Post
     </div>
-    <%= form_with(model: @image_post, local: true) do |f| %> 
+    <%= form_with(model: @image_post, local: true, url: choose_new_or_edit_image) do |f| %> 
     <%= f.text_area :content, placeholder: "What's on your mind, #{current_user.name}?", row: "15", class: "px-3 py-2 border-0" %>
     <hr class="mb-0">
     <div class="d-flex px-3 flex-start">
