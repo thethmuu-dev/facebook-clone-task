@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to image_posts_path, notice: "Logged In!"
     else
-      flash.now[:danger] = 'Login Failed!'
+      flash.now[:alert] = 'Login Failed!'
       render :new
     end
   end
